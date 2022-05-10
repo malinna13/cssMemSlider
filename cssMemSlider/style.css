@@ -14,6 +14,7 @@ input{
     position: absolute;
     opacity: 0;
     cursor: pointer;
+    transform: translateX(90px);
 }
 label{
     display: inline-block;
@@ -22,21 +23,56 @@ label{
     border: 2px solid white;
     border-radius: 50%;
     background-color: transparent;
-    margin: 95vh 6px 0 6px;
+    margin: 80vh 0px 0 0px;
     z-index: 2;
     cursor: pointer;
     transition-duration: 0.5s;
+    transform: translateX(90%);
 }
-.slide {
+label:last-child{
+    margin-right: 50px;
+}
+p{
+    display: none;
+    opacity: 0;
+    color: white;
+
+}
+
+.slider-wrapper{
+    max-width: 800px;
+    height: 100vh;
+    position: relative;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.slide-wrapper{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     position: absolute;
+    top: 0;
+    transform: translateX(-200%) translateY(0);
+    transition-duration: 0.5s;
+    opacity: 0;
+    text-align: left;
+
+}
+
+
+.slide {
+  
     background-position: center;
-    background-size: cover;
-    width: 90%;
+    background-size: contain;
+    background-repeat:  no-repeat;
+    width: 100%;
     height: 90vh;
     z-index: -1;
-    transform: translateX(-100%);
-    transition-duration: 0.5s;
-    opacity: 1;
+    
+
 
 }
 
@@ -69,10 +105,16 @@ input:focus+label{
     box-shadow: 0 0 0 2px teal, 0 0 18px white ;
 }
 
-input:checked~.slide{
+/* input:checked~.slide{
     transform: translateX(100%);
-}
-input:checked+label+.slide {
-    transform: translateX(0);
+} */
+input:checked+label+.slide-wrapper {
+    transform: translateX(0) scale(0.8);
     opacity: 1;
+}
+
+input:checked+label+.slide-wrapper p{
+    opacity: 1;
+    display: inline-block;
+
 }
