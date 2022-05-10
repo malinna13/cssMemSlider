@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: #282828;
+    overflow: hidden;
+}
+input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+label{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: 95vh 6px 0 6px;
+    z-index: 2;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+.slide {
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    width: 90%;
+    height: 90vh;
+    z-index: -1;
+    transform: translateX(-100%);
+    transition-duration: 0.5s;
+    opacity: 1;
+
+}
+
+.bg1 {
+    background-image: url(./1649308731428.jpeg);
+}
+
+.bg2 {
+    background-image: url(./1650093392075.jpeg);
+}
+
+.bg3 {
+    background-image: url(./1650702076040.jpeg);
+}
+.bg4 {
+    background-image: url(./1651904781475.jpeg);
+}
+.bg5 {
+    background-image: url(./1652025356733.jpeg);
+}
+input:hover+label{
+    background-color: gray;
+}
+
+input:checked+label{
+    background-color: white;
+}
+
+input:focus+label{
+    box-shadow: 0 0 0 2px teal, 0 0 18px white ;
+}
+
+input:checked~.slide{
+    transform: translateX(100%);
+}
+input:checked+label+.slide {
+    transform: translateX(0);
+    opacity: 1;
+}
